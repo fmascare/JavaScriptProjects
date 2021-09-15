@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Foodie on the Go!</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    
+    <body>
+        <div class="mobile-container">
+            <header>
+                <span id="logo">
+                    <span class="app-name" >F</span>
+                    <span class="app-name" >O</span>
+                    <span class="app-name" >T</span>
+                    <span class="app-name" >G</span>
+                </span>
+                <input id="userInput" type="text" placeholder="Search recipes">
+                <button id="search"><i class="fas fa-search"></i></button>
+            </header>
+            <div class="fav-container">
+                <h3>Saved Recipes<span id="edit">Edit</span></h3>
+                <ul class="fav-recipes" id="fav-recipes"></ul>
+            </div>
+            <div class="recipe-of-the-day" id="recipe-of-the-day"></div>
+        </div>
+        
+        <div class="recipe-info-container hidden" id="recipe-info-popup">
+            <div id="recipe-info"></div>
+        </div>
+        
+        <script type="text/javascript" src="./js/script.js"></script>
+    </body>
+    
+</html>
