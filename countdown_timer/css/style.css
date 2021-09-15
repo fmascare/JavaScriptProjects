@@ -98,3 +98,48 @@ h1 {
     margin-left: 30px;
     font-weight: bold;
 }
+
+@media screen and (max-width: 720px) {
+    h1 {
+        font-size: 45px;
+    }
+    .big-font {
+        font-size: 45px;
+        margin: 10px 40px;
+    }
+    .time-container span {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 40px;
+    }
+    .time-container {
+        padding-bottom: 1px;
+    }
+    .big-font {
+        font-size: 35px;
+        margin: 10px 40px;
+    }
+    .time-container span {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    h1 {
+        font-size: 30px;
+    }
+    .time-container {
+        padding-bottom: 1px;
+    }
+    .big-font {
+        font-size: 30px;
+        margin: 10px 40px;
+    }
+    .time-container span {
+        font-size: 12px;
+    }
+}

@@ -47,6 +47,7 @@ button {
     padding: 25px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    float: left;
 }
 
 button:hover {
@@ -55,4 +56,29 @@ button:hover {
 
 button:focus {
     outline: none;
+}
+
+@media screen and (max-width: 480px) {
+    #q-box {
+        width: 350px;
+        height: 380px;
+    }
+    ul {
+        padding-left: 100px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #q-box {
+        width: 300px;
+        height: 350px;
+    }
+    ul {
+        padding-left: 80px;
+        line-height: 2;
+    }
+    h2 {
+        font-size: 25px;
+        padding: 4px;
+    }
 }
