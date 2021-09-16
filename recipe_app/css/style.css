@@ -276,4 +276,10 @@ h3 {
         font-size: 18px;
         padding: 1px;
     }
+    #recipe-info {
+        max-width: 239px;
+    }
+    #recipe-info img {
+        height: 200px;
+    }
 }
