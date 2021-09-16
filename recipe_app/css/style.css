@@ -251,13 +251,14 @@ h3 {
         width: 300px;
     }
     #logo {
-        left: -3px;
+        left: -10px;
     }
     #heart {
         margin-left: 205px;
     }
     .app-name {
         font-size: 18px;
+        padding: 1px 2px;
     }
 }
 
@@ -266,12 +267,13 @@ h3 {
         width: 300px;
     }
     #logo {
-        left: -3px;
+        left: -10px;
     }
     #heart {
         margin-left: 205px;
     }
     .app-name {
         font-size: 18px;
+        padding: 1px 2px;
     }
 }
