@@ -246,6 +246,21 @@ h3 {
     cursor: pointer;
 }
 
+@media screen and (max-width: 480px) {
+    .mobile-container {
+        width: 300px;
+    }
+    #logo {
+        left: -3px;
+    }
+    #heart {
+        margin-left: 203px;
+    }
+    .app-name {
+        font-size: 20px;
+    }
+}
+
 @media screen and (max-width: 380px) {
     .mobile-container {
         width: 300px;
