@@ -142,6 +142,7 @@ h3 {
     object-fit: cover;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    position: relative;
 }
 
 .recipe-card {
@@ -169,15 +170,15 @@ h3 {
     padding: 12px;
 }
 
-#heart {
-    background-color: #fff;
-    border: none;
+.recipe-card-info button {
     position: absolute;
     z-index: 1;
-    margin-left: 303px;
     margin-top: 20px;
+    margin-left: 303px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
+    background-color: #fff;
+    border: none;
     padding: 5px 12px;
     cursor: pointer;
     color: #F1E7E4;
@@ -193,9 +194,7 @@ h3 {
     position: relative;
     top: 13px;
     left: -20px;
-    /*z-index: 2;*/
     font-size: 17px;
-    /*margin-left: -5px;*/
     cursor: pointer;
 }
 
@@ -245,4 +244,16 @@ h3 {
     top: 16px;
     right: 16px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 380px) {
+    .mobile-container {
+        width: 350px;
+    }
+    #logo {
+        left: -8px;
+    }
+    #heart {
+        margin-left: 254px;
+    }
 }
