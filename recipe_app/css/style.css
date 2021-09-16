@@ -248,12 +248,15 @@ h3 {
 
 @media screen and (max-width: 380px) {
     .mobile-container {
-        width: 350px;
+        width: 300px;
     }
     #logo {
-        left: -8px;
+        left: -3px;
     }
     #heart {
-        margin-left: 254px;
+        margin-left: 203px;
+    }
+    .app-name {
+        font-size: 20px;
     }
 }
