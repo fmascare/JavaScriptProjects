@@ -260,6 +260,10 @@ h3 {
         font-size: 18px;
         padding: 1px;
     }
+    .close-recipe-info {
+        top: 1px;
+        right: 1px;
+    }
 }
 
 @media screen and (max-width: 380px) {
