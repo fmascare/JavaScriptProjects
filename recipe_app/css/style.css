@@ -283,6 +283,7 @@ h3 {
         height: 200px;
     }
     .close-recipe-info {
+        top: 1px;
         right: 1px;
     }
 }
