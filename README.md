@@ -1,5 +1,5 @@
 # JavaScriptProjects
-This repo will include 10 HTML, CSS and Vanilla JavaScript mini-projects showcasing my learnings thus far...
+This repo will include 10 HTML, CSS and Vanilla JavaScript projects showcasing my learnings thus far...
 
 1. Count down Timer
 2. Quiz App
