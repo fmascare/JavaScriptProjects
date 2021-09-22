@@ -23,6 +23,7 @@ body {
     right: 10px;
     top: 10px;
     cursor: pointer;
+    overflow: auto;
 }
 
 #addNote.shorten {
