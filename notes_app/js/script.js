@@ -79,6 +79,10 @@ function updateLocalStorage() {
     localStorage.setItem('savedNotes', JSON.stringify(notesText));
 }
 
+window.addEventListener("touchmove", function() {
+    event.preventDefault();
+});
+
 window.addEventListener("scroll", function() {
     if(this.pageYOffset > 0) {
         addBtn.classList.add("shorten");
