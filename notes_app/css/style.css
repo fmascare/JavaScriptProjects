@@ -36,6 +36,19 @@ body {
     transition: 1s;
 }
 
+.addNewNote {
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #1BA025;
+    color: #fff;
+    border: none;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    display: none;
+}
+
 .notes {
     background-image: linear-gradient(#fff, #E3EAD1);
     width: 300px;
@@ -96,4 +109,13 @@ body {
 
 .notes .hidden {
     display: none;
+}
+
+@media screen and (max-width: 480px) {
+    .addNote {
+        display: none;
+    }
+    .addNewNote {
+        display: block;
+    }
 }

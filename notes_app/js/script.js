@@ -1,4 +1,5 @@
 var addBtn = document.getElementById("addNote");
+var addMobileBtn = document.getElementById("addNewNote");
 
 var savedNotes = JSON.parse(localStorage.getItem('savedNotes'));
 
@@ -9,6 +10,10 @@ if (savedNotes) {
 }
 
 addBtn.addEventListener("click", () => {
+    addNewNote();
+});
+
+addMobileBtn.addEventListener("click", () => {
     addNewNote();
 });
 
@@ -78,10 +83,6 @@ function updateLocalStorage() {
     
     localStorage.setItem('savedNotes', JSON.stringify(notesText));
 }
-
-document.addEventListener("touchmove", function() {
-    event.preventDefault();
-});
 
 window.addEventListener("scroll", function() {
     if(this.pageYOffset > 0) {
