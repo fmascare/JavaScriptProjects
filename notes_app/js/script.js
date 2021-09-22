@@ -79,3 +79,11 @@ function updateLocalStorage() {
     localStorage.setItem('savedNotes', JSON.stringify(notesText));
 }
 
+window.addEventListener("scroll", function() {
+    if(this.pageYOffset > 0) {
+        addBtn.classList.add("shorten");
+    }
+    else {
+        addBtn.classList.remove("shorten");
+    }
+});

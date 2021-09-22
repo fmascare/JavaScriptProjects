@@ -25,6 +25,17 @@ body {
     cursor: pointer;
 }
 
+#addNote.shorten {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    right: -67px;
+}
+
+#addNote.shorten:hover {
+    right: -6px;
+    transition: 1s;
+}
+
 .notes {
     background-image: linear-gradient(#fff, #E3EAD1);
     width: 300px;
