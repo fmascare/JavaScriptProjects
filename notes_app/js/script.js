@@ -79,7 +79,7 @@ function updateLocalStorage() {
     localStorage.setItem('savedNotes', JSON.stringify(notesText));
 }
 
-window.addEventListener("touchmove", function() {
+document.addEventListener("touchmove", function() {
     event.preventDefault();
 });
 
