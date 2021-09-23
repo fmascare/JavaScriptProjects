@@ -24,13 +24,13 @@ function getAllItems() {
         });
         toggleTools("remove");
         toggleChevronIcon("remove");
-        showAllBtn.classList.add("active");
-        showActiveBtn.classList.remove("active");
-        showCompBtn.classList.remove("active");
     }
     else {
         toggleTools("add");
         toggleChevronIcon("add");
+        showAllBtn.classList.add("active");
+        showActiveBtn.classList.remove("active");
+        showCompBtn.classList.remove("active");
     }
 }
 
@@ -156,28 +156,28 @@ if(inputText) {
 showAllBtn.addEventListener("click", () => {
     if(! showAllBtn.classList.contains("active")) {
         showAllBtn.classList.add("active");
+        showActiveBtn.classList.remove("active");
+        showCompBtn.classList.remove("active");
         getAllItems();
     }
-    showActiveBtn.classList.remove("active");
-    showCompBtn.classList.remove("active");
 });
 
 showActiveBtn.addEventListener("click", () => {
     if(! showActiveBtn.classList.contains("active")) {
         showActiveBtn.classList.add("active");
+        showAllBtn.classList.remove("active");
+        showCompBtn.classList.remove("active");
         getActiveItems();
     }
-    showAllBtn.classList.remove("active");
-    showCompBtn.classList.remove("active");
 });
 
 showCompBtn.addEventListener("click", () => {
     if(! showCompBtn.classList.contains("active")) {
         showCompBtn.classList.add("active");
+        showAllBtn.classList.remove("active");
+        showActiveBtn.classList.remove("active");
         getCompletedItems();
     }
-    showAllBtn.classList.remove("active");
-    showActiveBtn.classList.remove("active");
 });
 
 getAllItems();
