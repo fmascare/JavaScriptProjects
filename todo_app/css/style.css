@@ -1,0 +1,156 @@
+/** {
+    box-sizing: border-box;
+}*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #EFEAEF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #C4B6C4;
+    font-size: 45px;
+}
+
+.main-container {
+    width: 600px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 5px 5px 30px 1px rgba(0,0,0,0.2);
+}
+
+.main-container .inputText {
+    display: flex;
+    position: relative;
+    height: 50px;
+    border-bottom: 3px solid #ddd;
+}
+
+#chevronIcon {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: #ddd;
+}
+
+#chevronIcon.hidden{
+    visibility: hidden;
+}
+
+.main-container .inputText input {
+    width: 100%;
+    height: 95%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding-left: 50px;
+}
+
+::placeholder {
+    color: #ddd;
+}
+
+.main-container .list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-container .list ul li {
+    padding: 10px 20px 10px 45px;
+    border-bottom: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.main-container .list .deleteIcon {
+    color: #ddd;
+    font-size: 16px;
+    float: right;
+    padding-top: 5px;
+    display: none;
+    cursor: pointer;
+}
+
+.main-container .list ul li:hover .deleteIcon {
+    display: block;
+}
+
+#completeItem {
+    text-decoration: line-through;
+}
+
+.main-container .tools {
+    padding: 10px;
+    position: relative;
+}
+
+.main-container .hidden {
+    display: none;
+}
+
+.main-container .itemCount {
+    position: absolute;
+    top: 15px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.main-container .actions {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.main-container .actions button {
+    background-color: transparent;
+    padding: 5px;
+    margin-right: 15px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.main-container .actions .active {
+    border: 0.5px solid #ddd;
+}
+
+@media screen and (max-width: 598px) {
+    .main-container {
+        width: 480px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-container {
+        width: 360px;
+    }
+    .main-container .actions {
+        display: flex;
+        align-content: flex-end;
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .main-container {
+        width: 320px;
+    }
+    .main-container .actions {
+        display: flex;
+        align-content: flex-end;
+        justify-content: flex-end;
+    }
+    .main-container .actions button {
+        margin-right: 5px;
+    }
+    .main-container .list .deleteIcon {
+        display: block;
+    }
+}
