@@ -28,6 +28,9 @@ function getAllItems() {
     else {
         toggleTools("add");
         toggleChevronIcon("add");
+        showAllBtn.classList.add("active");
+        showActiveBtn.classList.remove("active");
+        showCompBtn.classList.remove("active");
     }
 }
 
