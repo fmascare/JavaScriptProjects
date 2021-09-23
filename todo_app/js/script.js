@@ -24,13 +24,13 @@ function getAllItems() {
         });
         toggleTools("remove");
         toggleChevronIcon("remove");
+        showAllBtn.classList.add("active");
+        showActiveBtn.classList.remove("active");
+        showCompBtn.classList.remove("active");
     }
     else {
         toggleTools("add");
         toggleChevronIcon("add");
-        showAllBtn.classList.add("active");
-        showActiveBtn.classList.remove("active");
-        showCompBtn.classList.remove("active");
     }
 }
 
