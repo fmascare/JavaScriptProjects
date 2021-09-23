@@ -88,6 +88,11 @@ function showList(item = '', state = '') {
             newEl.querySelector("li").classList.add("completeItem");
             newEl.querySelector("li").classList.remove("activeItem");
             updateState();
+            setTimeout(function() {
+                if(showActiveBtn.classList.contains("active")) {
+                    getActiveItems();
+                }
+            }, 400);
         }
     });
 
@@ -96,7 +101,15 @@ function showList(item = '', state = '') {
         newEl.remove();
         updateLS();
         updateState();
-        updateListCount('li');
+        if(showActiveBtn.classList.contains("active")) {
+            getActiveItems();
+        }
+        else if(showCompBtn.classList.contains("active")) {
+            getCompletedItems();
+        }
+        else {
+            getAllItems();
+        }
     });
         
     list.appendChild(newEl);
@@ -149,6 +162,14 @@ if(inputText) {
                 toggleChevronIcon("remove");
             }
             inputText.value = '';
+            if(showActiveBtn.classList.contains("active")) {
+                getActiveItems();
+            }
+            if(showCompBtn.classList.contains("active")) {
+                showCompBtn.classList.remove("active");
+                showAllBtn.classList.add("active");
+                getAllItems();
+            }
         }
     });
 }
