@@ -97,6 +97,9 @@ h1 {
     position: absolute;
     top: 112px;
     left: 88px;
+}
+
+.animation1 .wheel1 img {
     width: 15px;
     animation: wheel 1s linear infinite;
 }
@@ -105,6 +108,9 @@ h1 {
     position: absolute;
     top: 112px;
     left: 123px;
+}
+
+.animation1 .wheel2 img{
     width: 15px;
     animation: wheel 1s linear infinite;
 }
@@ -137,6 +143,21 @@ a {
    }
 }
 
+@media screen and (max-width: 650px) {
+    
+    .animation1 .car {
+        transform: translateX(-65px);
+    }
+    
+    .animation1 .wheel1 {
+        transform: translateX(-65px);
+    }
+    
+    .animation1 .wheel2 {
+        transform: translateX(-64px);
+    }
+}
+
 @media screen and (max-width: 480px) {
     
   h1 {
@@ -157,6 +178,19 @@ a {
       margin-right: 12px;
       padding: 0;
    }
+    
+   .animation1 .car {
+        transform: translateX(-65px);
+    }
+    
+    .animation1 .wheel1 {
+        transform: translateX(-65px);
+    }
+    
+    .animation1 .wheel2 {
+        transform: translateX(-64px);
+    }
+    
 }
 
 @media screen and (max-width: 380px) {
@@ -186,4 +220,16 @@ a {
    .card-container {
     padding: 1px;
    }
+    
+   .animation1 .car {
+        transform: translateX(-65px);
+    }
+    
+    .animation1 .wheel1 {
+        transform: translateX(-65px);
+    }
+    
+    .animation1 .wheel2 {
+        transform: translateX(-64px);
+    }
 }
