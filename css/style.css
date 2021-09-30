@@ -31,6 +31,8 @@ h1 {
     float: left;
     margin-right: 25px;
     margin-bottom: 35px;
+    position: relative;
+    overflow-x: hidden;
 }
 
 .card:hover {
@@ -44,6 +46,74 @@ h1 {
 
 .image-style {
     width: 100%;
+}
+
+.animation1 {
+    position: relative;
+    height: 140px;
+}
+
+.animation1 .animation1-bg {
+    background-image: url("../img/scene.png");
+    background-size: contain;
+    background-repeat: repeat-x;
+    width: 500%;
+    height: 140px;
+    position: absolute;
+    display: block;
+    animation: anim1 7s linear infinite;
+}
+
+@keyframes anim1 {
+    100% {
+        transform: translateX(-486px);
+    }
+}
+
+.animation1 .car {
+    position: absolute;
+    top: 92px;
+    left: 83px;
+}
+
+.animation1 .car img {
+    width: 60px;
+    height: 38px;
+    animation: car 1s linear infinite;
+}
+
+@keyframes car {
+    100% {
+        transform: translateY(-1px);
+    }
+    50% {
+        transform: translateY(1px);
+    }
+    100% {
+        transform: translateY(-1px);
+    }
+}
+
+.animation1 .wheel1 {
+    position: absolute;
+    top: 112px;
+    left: 88px;
+    width: 15px;
+    animation: wheel 1s linear infinite;
+}
+
+.animation1 .wheel2 {
+    position: absolute;
+    top: 112px;
+    left: 123px;
+    width: 15px;
+    animation: wheel 1s linear infinite;
+}
+
+@keyframes wheel {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 a {
