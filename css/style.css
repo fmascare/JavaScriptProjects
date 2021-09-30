@@ -191,6 +191,12 @@ a {
         transform: translateX(-64px);
     }
     
+    @keyframes anim1 {
+        100% {
+            transform: translateX(-401px);
+        }
+    }
+    
 }
 
 @media screen and (max-width: 380px) {
@@ -221,15 +227,45 @@ a {
     padding: 1px;
    }
     
+    .animation1 {
+        height: 130px;
+    }
+    
+   .animation1 .animation1-bg {
+       height: 130px;
+    }
+    
    .animation1 .car {
-        transform: translateX(-65px);
+       top: 83px;
+       transform: translateX(-65px);
+    }
+    
+    .animation1 .car img {
+        width: 50px;
+        height: 40px;
     }
     
     .animation1 .wheel1 {
-        transform: translateX(-65px);
+        top: 102px;
+        transform: translateX(-67px);
     }
     
     .animation1 .wheel2 {
-        transform: translateX(-64px);
+        top: 102px;
+        transform: translateX(-72px);
+    }
+    
+    .animation1 .wheel1 img {
+        width: 13px;
+    }
+    
+    .animation1 .wheel2 img {
+        width: 13px;
+    }
+    
+    @keyframes anim1 {
+        100% {
+            transform: translateX(-401px);
+        }
     }
 }
