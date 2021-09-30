@@ -7,7 +7,8 @@ body {
     padding: 0;
     font-family: 'Quicksand', sans-serif;
     background-image: linear-gradient(#9AD1E4, #A69AE4);
-    min-height: 97vh;
+    min-height: 98vh;
+    overflow: hidden;
 }
 
 img {
@@ -22,7 +23,7 @@ h3 {
 
 #mobile-container {
     width: 400px;
-    height: 630px;
+    height: 635px;
     overflow: hidden;
     border-radius: 10px;
     margin: 20px auto;
@@ -48,7 +49,7 @@ h3 {
 #mobile-container input {
     display: flex;
     margin: 12px auto;
-    width: 93%;
+    width: 87%;
     outline: none;
     padding: 6px;
     padding-left: 20px;
@@ -131,6 +132,7 @@ h3 {
 }
 
 .movie_card {
+    width: 110px;
     margin-right: 10px;
     border-radius: 3px;
     background-color: #3D3168;

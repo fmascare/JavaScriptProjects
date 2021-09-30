@@ -194,13 +194,11 @@ function scrollEvents(idName) {
 
             var scrollLeft = document.getElementById(`${idName}`).scrollLeft;
 
-            if(scrollLeft >= 0) { 
-                //document.getElementById(`scroll_${idName}_left`).classList.remove("hidden");
+            if(scrollLeft >= 0) {
                 hideScrollBtn('left','remove',idName);
             }
 
-            if(mainWidth + scrollLeft + scrollNum >= sectionWidth) { 
-                //document.getElementById(`scroll_${idName}_right`).classList.add("hidden");
+            if(mainWidth + scrollLeft + scrollNum >= sectionWidth) {
                 hideScrollBtn('right','add',idName);
             }
 
@@ -218,13 +216,11 @@ function scrollEvents(idName) {
             
             var scrollRight = document.getElementById(`${idName}`).scrollLeft;
             
-            if(scrollRight - scrollNum <= 0) { 
-                //document.getElementById(`scroll_${idName}_left`).classList.add("hidden");
+            if(scrollRight - scrollNum <= 0) {
                 hideScrollBtn('left','add',idName);
             }
             
-            if(mainWidth + scrollRight <= sectionWidth) { 
-                //document.getElementById(`scroll_${idName}_right`).classList.remove("hidden");
+            if(mainWidth + scrollRight <= sectionWidth) {
                 hideScrollBtn('right','remove',idName);
             }
         
@@ -265,6 +261,8 @@ function resetSearch() {
         left: `-${initialNo}`,
         behavior: 'smooth'
     });
+    
+    setTimeout(hideScrollBtn('left','add','search'),30000);
 }
 
 var mobileCont = document.getElementById("mobile-container");
