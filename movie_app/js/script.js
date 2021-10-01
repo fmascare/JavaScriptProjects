@@ -283,6 +283,7 @@ if(searchBtn) {
                 scrollEvents("search");
                 searchBtn.value = '';
                 searchBtn.blur();
+                mobileCont.focus();
             }
             else {
                 clearSearchHide("add");
