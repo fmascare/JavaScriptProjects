@@ -228,23 +228,6 @@ function scrollEvents(idName) {
     }
 }
 
-function wheelDistance(e) {
-    if(!e) {
-        e = window.event;
-    }
-    let w = e.wheelDelta, d = e.detail;
-    if(d) {
-        return -d/3;
-    }
-    return w/120;
-}
-
-function handleScroll(e) {
-    var delta = wheelDistance(e);
-    var distance = 200;
-    document.getElementById("mobile-container").scrollTop -= (distance * delta);
-}
-
 function clearSearchHide(action) {
     var searchSection = document.querySelector('.scontainer');
     if(searchSection.classList.contains("search-hide") && action === "remove") {
@@ -264,9 +247,6 @@ function resetSearch() {
     
     setTimeout(hideScrollBtn('left','add','search'),30000);
 }
-
-var mobileCont = document.getElementById("mobile-container");
-mobileCont.addEventListener('wheel', handleScroll);
 
 var searchBtn = document.getElementById("searchbox");
 searchBtn.focus();

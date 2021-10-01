@@ -21,10 +21,20 @@ h3 {
     text-align: center;
 }
 
+.hide-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 #mobile-container {
     width: 400px;
     height: 635px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     border-radius: 10px;
     margin: 20px auto;
     background-color: #210E56;
