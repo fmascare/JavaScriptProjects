@@ -135,7 +135,6 @@ async function searchMovies(text) {
     
     var searchResults = document.getElementById("search");
     searchResults.innerHTML = '';
-    searchResults.focus();
     
     respData.results.forEach(movie => {
         
@@ -270,6 +269,8 @@ var mobileCont = document.getElementById("mobile-container");
 mobileCont.addEventListener('wheel', handleScroll);
 
 var searchBtn = document.getElementById("searchbox");
+searchBtn.focus();
+
 if(searchBtn) {
     searchBtn.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
@@ -281,6 +282,7 @@ if(searchBtn) {
                 searchMovies(input);
                 scrollEvents("search");
                 searchBtn.value = '';
+                searchBtn.blur();
             }
             else {
                 clearSearchHide("add");
