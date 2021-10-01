@@ -135,6 +135,7 @@ async function searchMovies(text) {
     
     var searchResults = document.getElementById("search");
     searchResults.innerHTML = '';
+    searchResults.focus();
     
     respData.results.forEach(movie => {
         
@@ -280,7 +281,6 @@ if(searchBtn) {
                 searchMovies(input);
                 scrollEvents("search");
                 searchBtn.value = '';
-                document.querySelector('.scontainer').focus();
             }
             else {
                 clearSearchHide("add");
