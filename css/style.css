@@ -16,6 +16,11 @@ h1 {
     color: #fff;
 }
 
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
 #menu {
     margin-left: 20px;
     padding: 10px 10px;
@@ -31,7 +36,7 @@ h1 {
     float: left;
     margin-right: 25px;
     margin-bottom: 35px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .card:hover {
@@ -47,12 +52,12 @@ h1 {
     width: 100%;
 }
 
-.animation1 {
+.animation {
     position: relative;
     height: 140px;
 }
 
-.animation1 .animation1-bg {
+.animation .animation1-bg {
     background-image: url("../img/scene.png");
     background-size: contain;
     background-repeat: repeat-x;
@@ -69,13 +74,13 @@ h1 {
     }
 }
 
-.animation1 .car {
+.animation .car {
     position: absolute;
     top: 92px;
     left: 83px;
 }
 
-.animation1 .car img {
+.animation .car img {
     width: 60px;
     height: 38px;
     animation: car 1s linear infinite;
@@ -93,24 +98,24 @@ h1 {
     }
 }
 
-.animation1 .wheel1 {
+.animation .wheel1 {
     position: absolute;
     top: 112px;
     left: 88px;
 }
 
-.animation1 .wheel1 img {
+.animation .wheel1 img {
     width: 15px;
     animation: wheel 1s linear infinite;
 }
 
-.animation1 .wheel2 {
+.animation .wheel2 {
     position: absolute;
     top: 112px;
     left: 123px;
 }
 
-.animation1 .wheel2 img{
+.animation .wheel2 img{
     width: 15px;
     animation: wheel 1s linear infinite;
 }
@@ -121,9 +126,204 @@ h1 {
     }
 }
 
-a {
-    text-decoration: none;
-    color: #000000;
+.animation .animation2-bg {
+    background-image: url("../img/us-map.png");
+    background-size: cover;
+    opacity: 0.5;
+    width: 100%;
+    height: 140px;
+    position: absolute;
+}
+
+.animation .plane {
+    position: absolute;
+    top: 92px;
+    left: -60px;
+}
+
+.animation .plane img {
+    width: 60px;
+    height: 40px;
+    transform: rotate(-15deg);
+}
+
+#plane.moveinFrame {
+    animation: movein 5s linear forwards;
+}
+
+#plane.flyofFrame {
+    animation: flyout 5s linear forwards;
+}
+
+@keyframes movein {
+    0% {
+        left: -60px;
+    }
+    10% {
+        transform: translateY(20px) translateZ(8px) rotate(-15deg);
+    }
+    20% {
+        transform: translateY(25px) translateZ(6px) rotate(-15deg);
+    }
+    30% {
+        transform: translateY(30px) translateZ(4px) rotate(-15deg);
+    }
+    40% {
+        transform: translateY(35px) translateZ(2px) rotate(-15deg);
+    }
+    50% {
+        transform: translateY(40px) translateZ(0px) rotate(-15deg);
+    }
+    60% {
+        transform: translateY(50px) translateZ(0px) rotate(-15deg);
+    }
+    70% {
+        transform: translateX(56px) translateZ(-1px) rotate(-15deg);
+    }
+    80% {
+        transform: translateX(58px) translateZ(-1px) rotate(-15deg);
+    }
+    90% {
+        transform: translateX(60px) translateZ(-2px) rotate(-15deg);
+    }
+    100% {
+        transform: translateX(68px) translateZ(-2px) rotate(-15deg);
+    }
+}
+
+@keyframes flyout {
+    0% {
+        left: 0;
+    }
+    10% {
+        transform: translateX(27px) translateY(-15px) rotate(15deg);
+    }
+    20% {
+        transform: translateX(54px) translateY(-20px) rotate(15deg);
+    }
+    30% {
+        transform: translateX(81px) translateY(-25px) rotate(15deg);
+    }
+    40% {
+        transform: translateX(108px) translateY(-25px) rotate(15deg);
+    }
+    50% {
+        transform: translateX(135px) translateY(-30px) rotate(15deg);
+    }
+    60% {
+        transform: translateX(162px) translateY(-30px) rotate(15deg);
+    }
+    70% {
+        transform: translateX(189px) translateY(-30px) rotate(15deg);
+    }
+    80% {
+        transform: translateX(216px) translateY(-30px) rotate(15deg);
+    }
+    90% {
+        transform: translateX(243px) translateY(-30px) rotate(15deg);
+    }
+    100% {
+        transform: translateX(270px) translateY(-30px) rotate(15deg);
+    }
+}
+
+.animation .wing {
+    position: absolute;
+    top: 75px;
+    /*left: 53px;*/
+    left: -16px;
+}
+
+.animation .wing img {
+    width: 10px;
+    transform: rotate(-20deg);
+    animation: rotateWings 0.3s linear infinite;
+}
+
+#wing.movewings {
+    animation: moveWing 5s linear forwards;
+}
+
+#wing.flywings {
+    animation: flyWings 5s linear forwards;
+}
+
+@keyframes rotateWings {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveWing {
+    0% {
+        left: -16px;
+    }
+    10% {
+        transform: translateY(43px) translateZ(1px) rotate(-20deg);
+    }
+    20% {
+        transform: translateY(43px) translateZ(1px) rotate(-20deg);
+    }
+    30% {
+        transform: translateY(43px) translateZ(1px) rotate(-20deg);
+    }
+    40% {
+        transform: translateY(43px) translateZ(1px) rotate(-20deg);
+    }
+    50% {
+        transform: translateY(43px) translateZ(1px) rotate(-20deg);
+    }
+    60% {
+        transform: translateY(43px) translateZ(1px) rotate(-20deg);
+    }
+    70% {
+        transform: translateX(66px) translateY(-4px) rotate(-20deg);
+    }
+    80% {
+        transform: translateX(66px) translateY(-4px) rotate(-20deg);
+    }
+    90% {
+        transform: translateX(69px) translateY(-4px) rotate(-20deg);
+    }
+    100% {
+        transform: translateX(75px) translateY(-7px) rotate(-20deg);
+    }
+}
+
+@keyframes flyWings {
+    0% {
+        left: 53px;
+    }
+    10% {
+        transform: translateX(27px) translateY(-7px) rotate(20deg);
+    }
+    20% {
+        transform: translateX(54px) translateY(-12px) rotate(20deg);
+    }
+    30% {
+        transform: translateX(81px) translateY(-17px) rotate(20deg);
+    }
+    40% {
+        transform: translateX(108px) translateY(-17px) rotate(20deg);
+    }
+    50% {
+        transform: translateX(135px) translateY(-21px) rotate(20deg);
+    }
+    60% {
+        transform: translateX(162px) translateY(-21px) rotate(20deg);
+    }
+    70% {
+        transform: translateX(189px) translateY(-21px) rotate(20deg);
+    }
+    80% {
+        transform: translateX(216px) translateY(-21px) rotate(20deg);
+    }
+    90% {
+        transform: translateX(243px) translateY(-21px) rotate(20deg);
+    }
+    100% {
+        transform: translateX(270px) translateY(-21px) rotate(20deg);
+    }
 }
 
 @media screen and (max-width: 720px) {
@@ -137,23 +337,23 @@ a {
     }
     
   .card {
-      width: 30%;
-      margin-right: 12px;
+      width: 40%;
       padding: 0;
+      margin-left: 25px;
    }
 }
 
 @media screen and (max-width: 650px) {
     
-    .animation1 .car {
+    .animation .car {
         transform: translateX(-65px);
     }
     
-    .animation1 .wheel1 {
+    .animation .wheel1 {
         transform: translateX(-65px);
     }
     
-    .animation1 .wheel2 {
+    .animation .wheel2 {
         transform: translateX(-64px);
     }
 }
@@ -174,20 +374,21 @@ a {
     }
     
   .card {
-      width: 30%;
+      width: 40%;
       margin-right: 12px;
+      margin-left: 22px;
       padding: 0;
    }
     
-   .animation1 .car {
+   .animation .car {
         transform: translateX(-65px);
     }
     
-    .animation1 .wheel1 {
+    .animation .wheel1 {
         transform: translateX(-65px);
     }
     
-    .animation1 .wheel2 {
+    .animation .wheel2 {
         transform: translateX(-64px);
     }
     
@@ -219,47 +420,48 @@ a {
     }
     
   .card {
-      width: 30%;
+      width: 40%;
       margin-right: 9px;
+      margin-left: 20px;
    }
     
    .card-container {
     padding: 1px;
    }
     
-    .animation1 {
+    .animation {
         height: 130px;
     }
     
-   .animation1 .animation1-bg {
+   .animation .animation1-bg {
        height: 130px;
     }
     
-   .animation1 .car {
+   .animation .car {
        top: 83px;
        transform: translateX(-65px);
     }
     
-    .animation1 .car img {
+    .animation .car img {
         width: 50px;
         height: 40px;
     }
     
-    .animation1 .wheel1 {
+    .animation .wheel1 {
         top: 102px;
         transform: translateX(-67px);
     }
     
-    .animation1 .wheel2 {
+    .animation .wheel2 {
         top: 102px;
         transform: translateX(-72px);
     }
     
-    .animation1 .wheel1 img {
+    .animation .wheel1 img {
         width: 13px;
     }
     
-    .animation1 .wheel2 img {
+    .animation .wheel2 img {
         width: 13px;
     }
     
@@ -267,5 +469,9 @@ a {
         100% {
             transform: translateX(-401px);
         }
+    }
+    
+    .animation .animation2-bg {
+        height: 130px;
     }
 }
