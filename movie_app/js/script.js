@@ -280,6 +280,7 @@ if(searchBtn) {
                 searchMovies(input);
                 scrollEvents("search");
                 searchBtn.value = '';
+                document.querySelector('.scontainer').focus();
             }
             else {
                 clearSearchHide("add");
