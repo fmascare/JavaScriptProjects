@@ -170,7 +170,7 @@ h3 {
 @media screen and (max-width: 480px) {
     #mobile-container {
         width: 340px;
-        height: 580px;
+        height: 585px;
     }
     
 }
@@ -178,7 +178,14 @@ h3 {
 @media screen and (max-width: 380px) {
     #mobile-container {
         width: 300px;
-        height: 580px;
+        height: 500px;
+    }
+}
+    
+@media screen and (max-width: 380px) and (min-height: 550px) {
+    #mobile-container {
+        width: 300px;
+        height: 585px;
     }
     
 }
