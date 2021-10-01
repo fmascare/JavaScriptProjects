@@ -60,13 +60,20 @@ header {
     justify-content: center;
 }
 
+header .searchArea {
+    width: 100%;
+    position: relative;
+    margin-left: 20px;
+}
+
 header input {
     background-color: #eee;
     border: none;
     border-radius: 3px;
     padding: 8px;
-    width: 80%;
+    width: 90%;
     font-size: 17px;
+    outline: none;
 }
 
 header input::placeholder {
@@ -78,8 +85,10 @@ header button {
     color: #aaa;
     font-size: 18px;
     border: none;
-    margin-left: 5px;
     cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 6px;
 }
 
 .fav-container {

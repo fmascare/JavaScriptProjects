@@ -296,7 +296,7 @@ document.getElementById("edit").addEventListener("click", function() {
     }
 });
 
-document.getElementById("search").focus();
+document.getElementById("userInput").focus();
 
 //Enable search mode
 document.getElementById("search").onclick = function() {
@@ -305,6 +305,6 @@ document.getElementById("search").onclick = function() {
     if (userSearch !== "") {
         getRecipesBySearch(userSearch);
         document.getElementById("userInput").value = '';
-        document.getElementById("search").blur();
+        document.getElementById("userInput").blur();
     }
 }
