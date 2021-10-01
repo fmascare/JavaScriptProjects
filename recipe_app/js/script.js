@@ -296,8 +296,6 @@ document.getElementById("edit").addEventListener("click", function() {
     }
 });
 
-document.getElementById("userInput").focus();
-
 //Enable search mode
 document.getElementById("search").onclick = function() {
     recipeOTDContainer.innerHTML = '';
