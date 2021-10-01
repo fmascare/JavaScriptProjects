@@ -276,6 +276,8 @@ h3 {
     
     #recipe-info {
         max-width: 280px;
+        height: 600px;
+        border-radius: 5px;
     }
     
     #recipe-info img {
