@@ -296,11 +296,15 @@ document.getElementById("edit").addEventListener("click", function() {
     }
 });
 
+document.getElementById("search").focus();
+
 //Enable search mode
 document.getElementById("search").onclick = function() {
     recipeOTDContainer.innerHTML = '';
     const userSearch = document.getElementById("userInput").value;
     if (userSearch !== "") {
         getRecipesBySearch(userSearch);
+        document.getElementById("userInput").value = '';
+        document.getElementById("search").blur();
     }
 }
