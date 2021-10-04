@@ -297,12 +297,12 @@ document.getElementById("edit").addEventListener("click", function() {
 });
 
 //Enable search mode
-document.getElementById("search").onclick = function() {
+document.getElementById("search").addEventListener("click", function() {
     recipeOTDContainer.innerHTML = '';
     const userSearch = document.getElementById("userInput").value;
     if (userSearch !== "") {
         getRecipesBySearch(userSearch);
         document.getElementById("userInput").value = '';
-        document.getElementById("userInput").blur();
+        //document.getElementById("userInput").blur();
     }
-}
+});
