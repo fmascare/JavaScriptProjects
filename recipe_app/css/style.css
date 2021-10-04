@@ -159,17 +159,17 @@ h3 {
     box-shadow: 0 6px 6px 0 rgba(0,0,0,0.2);
     border-radius: 8px;
     margin-bottom: 15px;
+    position: relative;
 }
 
 .recipe-card-info {
-    cursor: pointer;
     position: relative;
 }
 
 .recipe-card-info span {
     position: absolute;
-    z-index: 1;
     margin-top: 20px;
+    z-index: 1;
     background-color: #fff;
     padding: 5px 12px;
     border-top-right-radius: 3px;
@@ -193,6 +193,15 @@ h3 {
     padding: 5px 12px;
     cursor: pointer;
     color: #F1E7E4;
+}
+
+.recipe-card-info .view-recipe-btn {
+    width: 20%;
+    font-size: 15px;
+    position: absolute;
+    margin-top: 55px;
+    color: #F5B041;
+    background-color: #000;
 }
 
 #heart.active {

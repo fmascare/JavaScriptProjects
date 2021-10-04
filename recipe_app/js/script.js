@@ -76,8 +76,9 @@ function loadRecipeOftheDay(recipeData, random = false) {
     recipeCard.innerHTML = `
                     <div class="recipe-card-info">
                         ${random ? '<span>Recipe of the Day</span>' : ''}
+                        <button class="rcp view-recipe-btn">View</button>
                         <button class="heart heart-${recipeData.idMeal}" id="heart"><i class="fas fa-heart"></i></button>
-                        <img id="recipe-of-the-day_img" class="rcp rcp-${recipeData.idMeal}" src="${recipeData.strMealThumb}" alt="${recipeData.strMeal}">
+                        <img id="recipe-of-the-day_img" src="${recipeData.strMealThumb}" alt="${recipeData.strMeal}">
                     </div>
                     <div class="recipe-of-the-day-body">
                         <span>${recipeData.strMeal}</span>
@@ -102,16 +103,8 @@ function loadRecipeOftheDay(recipeData, random = false) {
     if(rcpListener) {
         rcpListener.addEventListener("click", function(e) {
             displayRecipeInfo(recipeData.idMeal);
-            e.preventDefault();
         });
     }
-    
-    recipeOTDContainer.addEventListener("touchend", function(e) {
-        if(e.target.matches(`.rcp-${recipeData.idMeal}`)) {
-            displayRecipeInfo(recipeData.idMeal);
-        }
-        e.preventDefault();
-    });
     
     recipeOTDContainer.appendChild(recipeCard);
     updateHeartIcon(recipeData.idMeal);
