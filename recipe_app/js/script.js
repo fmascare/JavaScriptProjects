@@ -100,12 +100,14 @@ function loadRecipeOftheDay(recipeData, random = false) {
     
     const rcpListener = recipeCard.querySelector(".rcp");
     if(rcpListener) {
-        rcpListener.addEventListener("click", () => {
+        rcpListener.addEventListener("click", function(e) {
+            e.preventDefault();
             displayRecipeInfo(recipeData.idMeal);
         });
     }
     
-    recipeOTDContainer.addEventListener("click", function(e) {
+    recipeOTDContainer.addEventListener("touchstart", function(e) {
+        e.preventDefault();
         if(e.target.matches(`.rcp-${recipeData.idMeal}`)) {
             displayRecipeInfo(recipeData.idMeal);
         }
