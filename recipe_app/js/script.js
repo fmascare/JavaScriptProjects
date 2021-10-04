@@ -227,7 +227,7 @@ async function displayEditOption() {
 function displayRecipeInfo(recipeId) {
     document.getElementById("recipe-info").innerHTML = '';
     populateRecipeInfo(recipeId);
-    recipeInfo.classList.toggle("hidden");
+    recipeInfo.classList.remove("hidden");
 }
 
 async function populateRecipeInfo(recipeId) {
