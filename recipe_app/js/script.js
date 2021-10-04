@@ -77,7 +77,7 @@ function loadRecipeOftheDay(recipeData, random = false) {
                     <div class="recipe-card-info">
                         ${random ? '<span>Recipe of the Day</span>' : ''}
                         <button class="heart heart-${recipeData.idMeal}" id="heart"><i class="fas fa-heart"></i></button>
-                        <img id="recipe-of-the-day_img" class="rcp" src="${recipeData.strMealThumb}" alt="${recipeData.strMeal}">
+                        <img id="recipe-of-the-day_img" class="rcp-${recipeData.idMeal}" src="${recipeData.strMealThumb}" alt="${recipeData.strMeal}">
                     </div>
                     <div class="recipe-of-the-day-body">
                         <span>${recipeData.strMeal}</span>
@@ -98,12 +98,18 @@ function loadRecipeOftheDay(recipeData, random = false) {
         });
     }
     
-    const btnListener = recipeCard.querySelector(".rcp");
-    if(btnListener) {
-        btnListener.addEventListener("click", () => {
+    /*const rcpListener = recipeCard.querySelector(".rcp");
+    if(rcpListener) {
+        rcpListener.addEventListener("click", () => {
             displayRecipeInfo(recipeData.idMeal);
         });
-    }
+    }*/
+    
+    recipeOTDContainer.addEventListener("click", function(e) {
+        if(e.target.matches(`.rcp-${recipeData.idMeal}`)) {
+            displayRecipeInfo(recipeData.idMeal);
+        }
+    });
     
     recipeOTDContainer.appendChild(recipeCard);
     updateHeartIcon(recipeData.idMeal);
@@ -301,7 +307,7 @@ document.getElementById("search").addEventListener("click", function() {
     const userSearch = document.getElementById("userInput").value;
     if (userSearch !== "") {
         getRecipesBySearch(userSearch);
-        //document.getElementById("userInput").value = '';
+        document.getElementById("userInput").value = '';
         //document.getElementById("userInput").blur();
     }
 });
