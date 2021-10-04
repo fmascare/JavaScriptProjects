@@ -241,7 +241,6 @@ async function populateRecipeInfo(recipeId) {
                 ingredients.push(`${rcpData[`strIngredient${i}`]} - ${rcpData[`strMeasure${i}`]}`);
             }
         }
-
         document.getElementById("recipe-info").innerHTML = `
             <button class="close-recipe-info"><i class="far fa-times-circle"></i></button>
             <h2>${rcpData.strMeal}</h2>
@@ -256,9 +255,9 @@ async function populateRecipeInfo(recipeId) {
     
     const btnRecipeInfo = recipeInfo.querySelector(".close-recipe-info");
     if(btnRecipeInfo) {
-        btnRecipeInfo.addEventListener("click", () => {
+        btnRecipeInfo.onclick = function() {
             recipeInfo.classList.add("hidden");
-        });
+        }
     }
 }
 
@@ -302,7 +301,7 @@ document.getElementById("search").addEventListener("click", function() {
     const userSearch = document.getElementById("userInput").value;
     if (userSearch !== "") {
         getRecipesBySearch(userSearch);
-        document.getElementById("userInput").value = '';
+        //document.getElementById("userInput").value = '';
         //document.getElementById("userInput").blur();
     }
 });
