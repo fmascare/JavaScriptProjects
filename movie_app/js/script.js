@@ -2,8 +2,8 @@ var APIKEY = "6ded4d810fea7824b1775ec567dd74dc";
 var APIURL = "https://api.themoviedb.org/3";
 var IMGPATH = "https://image.tmdb.org/t/p/w1280";
 
-async function getPopularMovies() {
-    var url = APIURL + '/movie/popular?api_key=' + APIKEY + '&page=1';
+async function getTrendingMovies() {
+    var url = APIURL + '/trending/movie/week?api_key=' + APIKEY + '&page=1';
     var resp = await fetch(url);
     var respData = await resp.json();
     var today = new Date();
@@ -32,9 +32,16 @@ async function getPopularMovies() {
 
             var rating = document.createElement('span');
             rating.innerHTML = `<i class="fas fa-star"></i>` + movie.vote_average;
-
+            
             pop_div.appendChild(movie_img);
             pop_div.appendChild(rating);
+            
+            //add click listener for movie card
+            var movieCardListener = pop_div.querySelector('.movie_card_img');
+            movieCardListener.addEventListener("click", () => {
+                getMovieInfo(movie.id);
+            });
+            
             pop_cont.appendChild(pop_div);
         }
         
@@ -57,30 +64,45 @@ async function getUpComingMovies() {
     }
     
     var new_cont = document.getElementById("upcoming");
+    var page = 1;
     
-    respData.results.forEach(movie => {
-        
-        var release_date = new Date(movie.release_date);
-        
-        if(release_date >= today) {
-            var movie_card = document.createElement('div');
-            movie_card.classList.add("movie_card");
-            var movie_img = document.createElement('img');
-            movie_img.src = IMGPATH + movie.poster_path;
-            movie_img.classList.add("movie_card_img");
+    while(page < 4) {
+    
+        respData.results.forEach(movie => {
 
-            var release = document.createElement('span');
+            var release_date = new Date(movie.release_date);
 
-            var month = release_date.toLocaleString('default', {month: 'short'});
-            var day = release_date.getDate();
-            release.innerHTML = month + " " + day;
+            if(release_date >= today && movie.poster_path != null) {
+                var movie_card = document.createElement('div');
+                movie_card.classList.add("movie_card");
+                var movie_img = document.createElement('img');
+                movie_img.src = IMGPATH + movie.poster_path;
+                movie_img.classList.add("movie_card_img");
 
-            movie_card.appendChild(movie_img);
-            movie_card.appendChild(release);
-            new_cont.appendChild(movie_card);
-        }
+                var release = document.createElement('span');
 
-    });
+                var month = release_date.toLocaleString('default', {month: 'short'});
+                var day = release_date.getDate();
+                release.innerHTML = month + " " + day;
+                
+                movie_card.appendChild(movie_img);
+                movie_card.appendChild(release);
+                
+                //add click listener for movie card
+                var movieCardListener = movie_card.querySelector('.movie_card_img');
+                movieCardListener.addEventListener("click", () => {
+                    getMovieInfo(movie.id);
+                });
+
+                new_cont.appendChild(movie_card);
+            }
+
+        });
+        page = page + 1;
+        url = APIURL + '/movie/upcoming?api_key=' + APIKEY + '&page=' + page;
+        resp = await fetch(url);
+        respData = await resp.json();
+    }
 }
 
 async function getNowPlaying() {
@@ -112,9 +134,16 @@ async function getNowPlaying() {
 
             var rating = document.createElement('span');
             rating.innerHTML = `<i class="fas fa-star"></i>` + movie.vote_average;
-
+            
             inCinemas_div.appendChild(movie_img);
             inCinemas_div.appendChild(rating);
+            
+            //add click listener for movie card
+            var movieCardListener = inCinemas_div.querySelector('.movie_card_img');
+            movieCardListener.addEventListener("click", () => {
+                getMovieInfo(movie.id);
+            });
+
             inCinemas.appendChild(inCinemas_div);
         }
     });
@@ -147,15 +176,110 @@ async function searchMovies(text) {
 
             var rating = document.createElement('span');
             rating.innerHTML = `<i class="fas fa-star"></i>` + movie.vote_average;
-
+            
             search_div.appendChild(movie_img);
             search_div.appendChild(rating);
+            
+            //add click listener for movie card
+            var movieCardListener = search_div.querySelector('.movie_card_img');
+            movieCardListener.addEventListener("click", () => {
+                getMovieInfo(movie.id);
+            });
+
             searchResults.appendChild(search_div);
         }
         
     });
     
 }
+
+async function getMovieInfo(movieId) {
+    var url = APIURL + '/movie/' + movieId + '?api_key=' + APIKEY;
+    var resp = await fetch(url);
+    var respData = await resp.json();
+    const movie = respData;
+        
+    var url1 = APIURL + '/movie/' + movieId + '/credits?api_key=' + APIKEY;
+    var resp1 = await fetch(url1);
+    var respData1 = await resp1.json();
+    const castList = respData1;
+    
+    populateMovieInfo(movie, castList);
+}
+
+function populateMovieInfo(movie, castList) {
+    var movieDetails = document.getElementById("movie-info-container");
+    movieDetails.innerHTML = '';
+    var releaseDate = new Date(movie.release_date);
+    var releaseMonth = releaseDate.toLocaleDateString('default', {month: 'short'});
+    var releaseDay = releaseDate.getDate();
+    var releaseYear = releaseDate.getFullYear();
+    var genre = '';
+    movie.genres.forEach(g => {
+        genre += g.name + ', ';
+    });
+    genre = genre.replace(/, $/g,'');
+    
+    var len = (castList.cast.length < 13 ? castList.cast.length : 13);
+    var backdrop_image = (movie.backdrop_path ? movie.backdrop_path : movie.poster_path);
+    
+    var castUL = [];
+    for (let i=0; i<len; i++) {
+        if(castList.cast[i].profile_path) {
+            castUL.push(castList.cast[i]);
+        }
+    }
+    
+    if(castUL.length > 1) {
+        var castULString = `<ul class="cast_header">
+            <li>
+                CAST<button id="scroll_cast_right" class="scroll_icon_right"><i class="fas fa-chevron-right"></i></button>
+    <button id="scroll_cast_left" class="scroll_icon_left hidden"><i class="fas fa-chevron-left"></i></button>
+            </li>
+        </ul>
+        <div id="cast" class="cast-info">
+            <ul> ${castUL.map(cast => `<li><img src="${IMGPATH + cast.profile_path}">${cast.original_name}</li>`).join('')}
+            </ul>
+        </div>`;
+    }
+    else {
+        var castULString = '';
+    }
+
+    var movieInfoCard = document.createElement('div');
+    movieInfoCard.classList.add("movie-info-card");
+    movieInfoCard.classList.add("hide-scroll");
+    movieInfoCard.innerHTML = `<div class="backdrop_section"><img class="backdrop_image" src="${IMGPATH + backdrop_image}">
+        <button class="runtime">${movie.runtime} mins</button></div>
+        <button class="close"><i class="fas fa-times"></i></button>
+        <img class="poster_image" src="${IMGPATH + movie.poster_path}">
+        <h2>${movie.original_title}</h2>
+        <p class="movie-intro">${movie.overview}</p>
+        ${castULString}
+        <div class="extra-info">
+            <ul>
+                <li>
+                    <header>Release Date</header>
+                    ${releaseMonth} ${releaseDay}, ${releaseYear}
+                </li>
+                <li>
+                    <header>Genre</header>
+                    ${genre}
+                </li>
+            </ul>
+        </div>`;
+    
+    var closeBtnListener = movieInfoCard.querySelector('.close');
+    closeBtnListener.addEventListener("click", () => {
+        movieDetails.classList.add("hidden");
+    });
+
+    movieDetails.appendChild(movieInfoCard);
+    movieDetails.classList.remove("hidden");
+    scrollEvents("cast", 370);
+}
+
+
 
 function hideScrollBtn(direction, action, idName) {
     var scrollBtn = document.getElementById(`scroll_${idName}_${direction}`);
@@ -177,11 +301,10 @@ function hideScrollBtn(direction, action, idName) {
     }
 }
 
-function scrollEvents(idName) {
+function scrollEvents(idName, scrollNum) {
     var scrollRightBtn = document.getElementById(`scroll_${idName}_right`);
     var scrollLeftBtn = document.getElementById(`scroll_${idName}_left`);
     var mainWidth = document.getElementById("mobile-container").offsetWidth;
-    var scrollNum = 350;
 
     if(scrollRightBtn) {
         scrollRightBtn.addEventListener("click", () => {
@@ -260,7 +383,7 @@ if(searchBtn) {
                 var input = searchBtn.value;
                 input = encodeURIComponent(input);
                 searchMovies(input);
-                scrollEvents("search");
+                scrollEvents("search", 350);
                 searchBtn.value = '';
                 searchBtn.blur();
             }
@@ -271,9 +394,9 @@ if(searchBtn) {
     });
 }
 
-scrollEvents("popular");
-scrollEvents("upcoming");
-scrollEvents("inCinemas");
-getPopularMovies();
+scrollEvents("popular", 350);
+scrollEvents("upcoming", 350);
+scrollEvents("inCinemas", 350);
+getTrendingMovies();
 getUpComingMovies();
 getNowPlaying();
