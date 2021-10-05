@@ -85,7 +85,8 @@ h3 {
     display: flex;
     padding: 0px 0px 10px 10px;
     position: relative;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 #upcoming {

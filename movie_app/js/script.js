@@ -10,12 +10,12 @@ async function getTrendingMovies() {
     today.setHours(0,0,0,0);
     //console.log(respData);
     
-    if(respData.total_results < 4) {
+    /*if(respData.total_results < 4) {
         hideScrollBtn('right','add','popular');
     }
     else {
         hideScrollBtn('right','remove','popular');
-    }
+    }*/
     
     var pop_cont = document.getElementById("popular");
     
@@ -394,7 +394,7 @@ if(searchBtn) {
     });
 }
 
-scrollEvents("popular", 200);
+//scrollEvents("popular", 200);
 scrollEvents("upcoming", 200);
 scrollEvents("inCinemas", 200);
 getTrendingMovies();
