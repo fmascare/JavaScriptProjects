@@ -394,9 +394,9 @@ if(searchBtn) {
     });
 }
 
-scrollEvents("popular", 350);
-scrollEvents("upcoming", 350);
-scrollEvents("inCinemas", 350);
+scrollEvents("popular", 300);
+scrollEvents("upcoming", 300);
+scrollEvents("inCinemas", 300);
 getTrendingMovies();
 getUpComingMovies();
 getNowPlaying();
