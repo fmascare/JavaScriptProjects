@@ -93,21 +93,24 @@ h3 {
     display: flex;
     padding: 0px 0px 10px 10px;
     position: relative;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 #inCinemas {
     display: flex;
     padding: 0px 0px 10px 10px;
     position: relative;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 #search {
     display: flex;
     padding: 0px 0px 10px 10px;
     position: relative;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 .scroll_icon_right {
@@ -267,7 +270,8 @@ h3 {
 }
 
 .movie-info-container .cast-info {
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 .movie-info-container .cast-info img {

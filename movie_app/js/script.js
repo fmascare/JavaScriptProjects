@@ -56,12 +56,12 @@ async function getUpComingMovies() {
     today.setHours(0,0,0,0);
     //console.log(respData);
     
-    if(respData.total_results < 4) {
+    /*if(respData.total_results < 4) {
         hideScrollBtn('right','add','upcoming');
     }
     else {
         hideScrollBtn('right','remove','upcoming');
-    }
+    }*/
     
     var new_cont = document.getElementById("upcoming");
     var page = 1;
@@ -113,12 +113,12 @@ async function getNowPlaying() {
     today.setHours(0,0,0,0);
     //console.log(respData);
     
-    if(respData.total_results < 4) {
+    /*if(respData.total_results < 4) {
         hideScrollBtn('right','add','inCinemas');
     }
     else {
         hideScrollBtn('right','remove','inCinemas');
-    }
+    }*/
     
     var inCinemas = document.getElementById("inCinemas");
     
@@ -155,12 +155,12 @@ async function searchMovies(text) {
     var respData = await resp.json();
     //console.log(respData);
     
-    if(respData.total_results < 4) {
+    /*if(respData.total_results < 4) {
         hideScrollBtn('right','add','search');
     }
     else {
         hideScrollBtn('right','remove','search');
-    }
+    }*/
     
     var searchResults = document.getElementById("search");
     searchResults.innerHTML = '';
@@ -232,12 +232,8 @@ function populateMovieInfo(movie, castList) {
     
     if(castUL.length > 1) {
         var castULString = `<ul class="cast_header">
-            <li>
-                CAST<button id="scroll_cast_right" class="scroll_icon_right"><i class="fas fa-chevron-right"></i></button>
-    <button id="scroll_cast_left" class="scroll_icon_left hidden"><i class="fas fa-chevron-left"></i></button>
-            </li>
-        </ul>
-        <div id="cast" class="cast-info">
+        <li>CAST</li></ul>
+        <div id="cast" class="cast-info hide-scroll">
             <ul> ${castUL.map(cast => `<li><img src="${IMGPATH + cast.profile_path}">${cast.original_name}</li>`).join('')}
             </ul>
         </div>`;
@@ -276,7 +272,7 @@ function populateMovieInfo(movie, castList) {
 
     movieDetails.appendChild(movieInfoCard);
     movieDetails.classList.remove("hidden");
-    scrollEvents("cast", 370);
+    //scrollEvents("cast", 370);
 }
 
 
@@ -368,7 +364,7 @@ function resetSearch() {
         behavior: 'smooth'
     });
     
-    setTimeout(hideScrollBtn('left','add','search'),30000);
+    /*setTimeout(hideScrollBtn('left','add','search'),30000);*/
 }
 
 var searchBtn = document.getElementById("searchbox");
@@ -383,7 +379,7 @@ if(searchBtn) {
                 var input = searchBtn.value;
                 input = encodeURIComponent(input);
                 searchMovies(input);
-                scrollEvents("search", 350);
+                //scrollEvents("search", 350);
                 searchBtn.value = '';
                 searchBtn.blur();
             }
@@ -395,8 +391,8 @@ if(searchBtn) {
 }
 
 //scrollEvents("popular", 200);
-scrollEvents("upcoming", 200);
-scrollEvents("inCinemas", 200);
+//scrollEvents("upcoming", 200);
+//scrollEvents("inCinemas", 200);
 getTrendingMovies();
 getUpComingMovies();
 getNowPlaying();
