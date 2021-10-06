@@ -122,9 +122,9 @@ h3 {
     border: none;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    padding: 6px 8px 6px 6px;
-    cursor: pointer;
+    padding: 4px 4px 4px 4px;
     z-index: 2;
+    font-size: 14px;
 }
 
 .scroll_icon_left {
@@ -136,9 +136,83 @@ h3 {
     border: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    padding: 6px 6px 6px 8px;
-    cursor: pointer;
+    padding: 4px 4px 4px 4px;
     z-index: 2;
+    font-size: 14px;
+}
+
+.r-arrow.primary.bounceArrowsRight {
+    animation-name: bounceArrowsRight;
+    animation-duration: 1.4s;
+    animation-delay: 0.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.bounceArrowsRight {
+    animation-name: bounceArrowsRight;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes bounceArrowsRight {
+    0% {
+        opacity: 1;
+        transform: translateX(0px) scale(1);
+    }
+    
+    25% {
+        opacity: 0;
+        transform: translateX(10px) scale(0.9);
+    }
+    
+    26% {
+        opacity: 0;
+        transform: translateX(-10px) scale(0.9);
+    }
+    
+    55% {
+        opacity: 1;
+        transform: translateX(0px) scale(1);
+    }
+}
+
+.l-arrow.primary.bounceArrowsLeft {
+    animation-name: bounceArrowsLeft;
+    animation-duration: 1.4s;
+    animation-delay: 0.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.bounceArrowsLeft {
+    animation-name: bounceArrowsLeft;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes bounceArrowsLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0px) scale(1);
+    }
+    
+    25% {
+        opacity: 0;
+        transform: translateX(-10px) scale(0.9);
+    }
+    
+    26% {
+        opacity: 0;
+        transform: translateX(10px) scale(0.9);
+    }
+    
+    55% {
+        opacity: 1;
+        transform: translateX(0px) scale(1);
+    }
 }
 
 .hidden {

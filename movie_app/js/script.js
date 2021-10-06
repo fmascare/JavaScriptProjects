@@ -10,13 +10,6 @@ async function getTrendingMovies() {
     today.setHours(0,0,0,0);
     //console.log(respData);
     
-    /*if(respData.total_results < 4) {
-        hideScrollBtn('right','add','popular');
-    }
-    else {
-        hideScrollBtn('right','remove','popular');
-    }*/
-    
     var pop_cont = document.getElementById("popular");
     
     respData.results.forEach(movie => {
@@ -55,13 +48,6 @@ async function getUpComingMovies() {
     var today = new Date();
     today.setHours(0,0,0,0);
     //console.log(respData);
-    
-    /*if(respData.total_results < 4) {
-        hideScrollBtn('right','add','upcoming');
-    }
-    else {
-        hideScrollBtn('right','remove','upcoming');
-    }*/
     
     var new_cont = document.getElementById("upcoming");
     var page = 1;
@@ -113,13 +99,6 @@ async function getNowPlaying() {
     today.setHours(0,0,0,0);
     //console.log(respData);
     
-    /*if(respData.total_results < 4) {
-        hideScrollBtn('right','add','inCinemas');
-    }
-    else {
-        hideScrollBtn('right','remove','inCinemas');
-    }*/
-    
     var inCinemas = document.getElementById("inCinemas");
     
     respData.results.forEach(movie => {
@@ -154,13 +133,6 @@ async function searchMovies(text) {
     var resp = await fetch(url);
     var respData = await resp.json();
     //console.log(respData);
-    
-    /*if(respData.total_results < 4) {
-        hideScrollBtn('right','add','search');
-    }
-    else {
-        hideScrollBtn('right','remove','search');
-    }*/
     
     var searchResults = document.getElementById("search");
     searchResults.innerHTML = '';
@@ -272,79 +244,52 @@ function populateMovieInfo(movie, castList) {
 
     movieDetails.appendChild(movieInfoCard);
     movieDetails.classList.remove("hidden");
-    //scrollEvents("cast", 370);
 }
 
-
-
-function hideScrollBtn(direction, action, idName) {
-    var scrollBtn = document.getElementById(`scroll_${idName}_${direction}`);
-    if(direction === 'left') {
-        if(action === 'add' && ! scrollBtn.classList.contains("hidden")) {
-            scrollBtn.classList.add("hidden");
-        }
-        else if(action === 'remove') {
-            scrollBtn.classList.remove("hidden");
-        }
-    }
-    if (direction === 'right') {
-        if(action === 'add' && ! scrollBtn.classList.contains("hidden")) {
-            scrollBtn.classList.add("hidden");
-        }
-        else if(action === 'remove') {
-            scrollBtn.classList.remove("hidden");
-        }
-    }
-}
-
-function scrollEvents(idName, scrollNum) {
-    var scrollRightBtn = document.getElementById(`scroll_${idName}_right`);
-    var scrollLeftBtn = document.getElementById(`scroll_${idName}_left`);
-    var mainWidth = document.getElementById("mobile-container").offsetWidth;
-
-    if(scrollRightBtn) {
-        scrollRightBtn.addEventListener("click", () => {
-            document.getElementById(`${idName}`).scrollBy({
-                left: `${scrollNum}`,
-                behavior: 'smooth'
-            });
-
-            var sectionWidth = document.getElementById(`${idName}`).scrollWidth;
-
-            var scrollLeft = document.getElementById(`${idName}`).scrollLeft;
-
-            if(scrollLeft >= 0) {
-                hideScrollBtn('left','remove',idName);
-            }
-
-            if(mainWidth + scrollLeft + scrollNum >= sectionWidth) {
-                hideScrollBtn('right','add',idName);
-            }
-
-        });
-    }
+function scrollEvents(idName) {
     
-    if(scrollLeftBtn) {
-        scrollLeftBtn.addEventListener("click", () => {
-            document.getElementById(`${idName}`).scrollBy({
-                left: `-${scrollNum}`,
-                behavior: 'smooth'
+    var containerName = document.getElementById(`${idName}`);
+    var scrollName = document.querySelector(`.scroll_${idName}`);
+    var mainWidth = document.getElementById("mobile-container").offsetWidth;
+    
+    containerName.addEventListener("scroll", () => {
+        
+        if(containerName.scrollLeft > 0) {
+            scrollName.querySelector('.scroll_icon_right').classList.remove('hidden');
+            scrollName.querySelector('.scroll_icon_left').classList.remove('hidden');
+            
+            var arrowsR = scrollName.querySelectorAll('.r-arrow');
+            arrowsR.forEach(arr => {
+                arr.classList.add('bounceArrowsRight');
+            });
+            var arrowsL = scrollName.querySelectorAll('.l-arrow');
+            arrowsL.forEach(arr => {
+                arr.classList.add('bounceArrowsLeft');
+            });
+        }
+        if(containerName.scrollLeft == 0) {
+            
+            var arrowsR = scrollName.querySelectorAll('.r-arrow');
+            arrowsR.forEach(arr => {
+                arr.classList.remove('bounceArrowsRight');
+            });
+            var arrowsL = scrollName.querySelectorAll('.l-arrow');
+            arrowsL.forEach(arr => {
+                arr.classList.remove('bounceArrowsLeft');
             });
             
-            var sectionWidth = document.getElementById(`${idName}`).scrollWidth;
+            scrollName.querySelector('.scroll_icon_left').classList.add('hidden');
+            scrollName.querySelector('.scroll_icon_right').classList.add('hidden');
             
-            var scrollRight = document.getElementById(`${idName}`).scrollLeft;
-            
-            if(scrollRight - scrollNum <= 0) {
-                hideScrollBtn('left','add',idName);
-            }
-            
-            if(mainWidth + scrollRight <= sectionWidth) {
-                hideScrollBtn('right','remove',idName);
-            }
-        
-        });   
-    }
+        }
+        if(containerName.scrollLeft + mainWidth >= containerName.scrollWidth) {
+            var arrowsR = scrollName.querySelectorAll('.r-arrow');
+            arrowsR.forEach(arr => {
+                arr.classList.remove('bounceArrowsRight');
+            });
+            scrollName.querySelector('.scroll_icon_right').classList.add('hidden');
+        }
+    });
 }
 
 function clearSearchHide(action) {
@@ -362,9 +307,7 @@ function resetSearch() {
     document.getElementById("search").scrollBy({
         left: `-${initialNo}`,
         behavior: 'smooth'
-    });
-    
-    /*setTimeout(hideScrollBtn('left','add','search'),30000);*/
+    });    
 }
 
 var searchBtn = document.getElementById("searchbox");
@@ -379,7 +322,7 @@ if(searchBtn) {
                 var input = searchBtn.value;
                 input = encodeURIComponent(input);
                 searchMovies(input);
-                //scrollEvents("search", 350);
+                scrollEvents("search");
                 searchBtn.value = '';
                 searchBtn.blur();
             }
@@ -390,9 +333,9 @@ if(searchBtn) {
     });
 }
 
-//scrollEvents("popular", 200);
-//scrollEvents("upcoming", 200);
-//scrollEvents("inCinemas", 200);
+scrollEvents("popular");
+scrollEvents("upcoming");
+scrollEvents("inCinemas");
 getTrendingMovies();
 getUpComingMovies();
 getNowPlaying();
